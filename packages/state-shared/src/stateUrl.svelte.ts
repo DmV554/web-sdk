@@ -22,7 +22,7 @@ export type Key =
 	| 'event'
 	;
 
-const getUrlSearchParam = (key: Key) => page.url.searchParams.get(key);
+const getUrlSearchParam = (key: Key) => page.url.searchParams.get(key) as string;
 
 // params for play
 const lang = () =>
@@ -34,7 +34,7 @@ const social = () => getUrlSearchParam('social') === 'true';
 
 // params for replay
 const replay = () => getUrlSearchParam('replay') === 'true';
-const amount = () => getUrlSearchParam('amount') || '';
+const amount = () => Number(getUrlSearchParam('amount')) || 0;
 const game = () => getUrlSearchParam('game') || '';
 const version = () => getUrlSearchParam('version') || '';
 const mode = () => getUrlSearchParam('mode') || '';

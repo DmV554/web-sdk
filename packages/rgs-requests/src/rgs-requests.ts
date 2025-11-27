@@ -99,13 +99,14 @@ export const requestBet = async (options: {
 
 export const requestReplay = async (options: {
 	game: string;
-	version: number;
+	version: string;
 	mode: string;
 	event: string;
 	rgsUrl: string;
 }) => {
 	const data = await rgsFetcher.get({
 		rgsUrl: options.rgsUrl,
+		// @ts-ignore TODO: update the schema.ts
 		url: `/bet/replay/${options.game}/${options.version}/${options.mode}/${options.event}`,
 	});
 
